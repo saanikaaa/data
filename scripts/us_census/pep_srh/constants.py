@@ -1,0 +1,233 @@
+'''
+Constant value used in processing SRH are defined here
+
+This module also consists of mapping between various forms of column names
+found in downloaded files and its corresponding SV name.
+While preprocessing files column names are changed to SV names as used in
+DC import
+'''
+
+DOWNLOAD_DIR = '/download_files/'
+PROCESS_AS_IS_DIR = '/process_files/as_is/'
+PROCESS_AGG_DIR = '/process_files/agg/'
+OUTPUT_DIR = '/output_files/'
+
+# pylint: disable=line-too-long
+stat_var_col_mapping = {
+    # 'NH-W-M':
+    #     'Count_Person_Male_NotHispanicOrLatino_WhiteAlone',
+    'NH-W-M':
+        'Count_Person_Male_WhiteAloneNotHispanicOrLatino',
+    # 'NHWA_MALE':
+    #     'Count_Person_Male_NotHispanicOrLatino_WhiteAlone',
+    'NHWA_MALE':
+        'Count_Person_Male_WhiteAloneNotHispanicOrLatino',
+    # 'NH-W-F':
+    #     'Count_Person_Female_NotHispanicOrLatino_WhiteAlone',
+    'NH-W-F':
+        'Count_Person_Female_WhiteAloneNotHispanicOrLatino',
+    # 'NHWA_FEMALE':
+    #     'Count_Person_Female_NotHispanicOrLatino_WhiteAlone',
+    'NHWA_FEMALE':
+        'Count_Person_Female_WhiteAloneNotHispanicOrLatino',
+    'NH-B-M':
+        'Count_Person_Male_NotHispanicOrLatino_BlackOrAfricanAmericanAlone',
+    'NHBA_MALE':
+        'Count_Person_Male_NotHispanicOrLatino_BlackOrAfricanAmericanAlone',
+    'NH-B-F':
+        'Count_Person_Female_NotHispanicOrLatino_BlackOrAfricanAmericanAlone',
+    'NHBA_FEMALE':
+        'Count_Person_Female_NotHispanicOrLatino_BlackOrAfricanAmericanAlone',
+    'NH-AI-M':
+        'Count_Person_Male_NotHispanicOrLatino_AmericanIndianOrAlaskaNativeAlone',
+    'NH-AI-F':
+        'Count_Person_Female_NotHispanicOrLatino_AmericanIndianOrAlaskaNativeAlone',
+    'NH-AIAN-M':
+        'Count_Person_Male_NotHispanicOrLatino_AmericanIndianOrAlaskaNativeAlone',
+    'NHIA_MALE':
+        'Count_Person_Male_NotHispanicOrLatino_AmericanIndianOrAlaskaNativeAlone',
+    'NH-AIAN-F':
+        'Count_Person_Female_NotHispanicOrLatino_AmericanIndianOrAlaskaNativeAlone',
+    'NHIA_FEMALE':
+        'Count_Person_Female_NotHispanicOrLatino_AmericanIndianOrAlaskaNativeAlone',
+    'NH-API-M':
+        'Count_Person_Male_NotHispanicOrLatino_AsianOrPacificIslander',
+    'NH-API-F':
+        'Count_Person_Female_NotHispanicOrLatino_AsianOrPacificIslander',
+    'H-W-M':
+        'Count_Person_Male_HispanicOrLatino_WhiteAlone',
+    'HWA_MALE':
+        'Count_Person_Male_HispanicOrLatino_WhiteAlone',
+    'H-W-F':
+        'Count_Person_Female_HispanicOrLatino_WhiteAlone',
+    'HWA_FEMALE':
+        'Count_Person_Female_HispanicOrLatino_WhiteAlone',
+    'H-B-M':
+        'Count_Person_Male_HispanicOrLatino_BlackOrAfricanAmericanAlone',
+    'HBA_MALE':
+        'Count_Person_Male_HispanicOrLatino_BlackOrAfricanAmericanAlone',
+    'H-B-F':
+        'Count_Person_Female_HispanicOrLatino_BlackOrAfricanAmericanAlone',
+    'HBA_FEMALE':
+        'Count_Person_Female_HispanicOrLatino_BlackOrAfricanAmericanAlone',
+    'H-AI-M':
+        'Count_Person_Male_HispanicOrLatino_AmericanIndianOrAlaskaNativeAlone',
+    'H-AI-F':
+        'Count_Person_Female_HispanicOrLatino_AmericanIndianOrAlaskaNativeAlone',
+    'H-AIAN-M':
+        'Count_Person_Male_HispanicOrLatino_AmericanIndianOrAlaskaNativeAlone',
+    'HIA_MALE':
+        'Count_Person_Male_HispanicOrLatino_AmericanIndianOrAlaskaNativeAlone',
+    'H-AIAN-F':
+        'Count_Person_Female_HispanicOrLatino_AmericanIndianOrAlaskaNativeAlone',
+    'HIA_FEMALE':
+        'Count_Person_Female_HispanicOrLatino_AmericanIndianOrAlaskaNativeAlone',
+    'H-API-M':
+        'Count_Person_Male_HispanicOrLatino_AsianOrPacificIslander',
+    'H-API-F':
+        'Count_Person_Female_HispanicOrLatino_AsianOrPacificIslander',
+    'NHAA_MALE':
+        'Count_Person_Male_NotHispanicOrLatino_AsianAlone',
+    'NHAA_FEMALE':
+        'Count_Person_Female_NotHispanicOrLatino_AsianAlone',
+    'NHNA_MALE':
+        'Count_Person_Male_NotHispanicOrLatino_NativeHawaiianOrOtherPacificIslanderAlone',
+    'NHNA_FEMALE':
+        'Count_Person_Female_NotHispanicOrLatino_NativeHawaiianOrOtherPacificIslanderAlone',
+    'NHTOM_MALE':
+        'Count_Person_Male_NotHispanicOrLatino_TwoOrMoreRaces',
+    'NHTOM_FEMALE':
+        'Count_Person_Female_NotHispanicOrLatino_TwoOrMoreRaces',
+    'NHWAC_MALE':
+        'Count_Person_Male_NotHispanicOrLatino_WhiteAloneOrInCombinationWithOneOrMoreOtherRaces',
+    'NHWAC_FEMALE':
+        'Count_Person_Female_NotHispanicOrLatino_WhiteAloneOrInCombinationWithOneOrMoreOtherRaces',
+    'NHBAC_MALE':
+        'Count_Person_Male_NotHispanicOrLatino_BlackOrAfricanAmericanAloneOrInCombinationWithOneOrMoreOtherRaces',
+    'NHBAC_FEMALE':
+        'Count_Person_Female_NotHispanicOrLatino_BlackOrAfricanAmericanAloneOrInCombinationWithOneOrMoreOtherRaces',
+    'NHIAC_MALE':
+        'Count_Person_Male_NotHispanicOrLatino_AmericanIndianAndAlaskaNativeAloneOrInCombinationWithOneOrMoreOtherRaces',
+    'NHIAC_FEMALE':
+        'Count_Person_Female_NotHispanicOrLatino_AmericanIndianAndAlaskaNativeAloneOrInCombinationWithOneOrMoreOtherRaces',
+    'NHAAC_MALE':
+        'Count_Person_Male_NotHispanicOrLatino_AsianAloneOrInCombinationWithOneOrMoreOtherRaces',
+    'NHAAC_FEMALE':
+        'Count_Person_Female_NotHispanicOrLatino_AsianAloneOrInCombinationWithOneOrMoreOtherRaces',
+    'NHNAC_MALE':
+        'Count_Person_Male_NotHispanicOrLatino_NativeHawaiianAndOtherPacificIslanderAloneOrInCombinationWithOneOrMoreOtherRaces',
+    'NHNAC_FEMALE':
+        'Count_Person_Female_NotHispanicOrLatino_NativeHawaiianAndOtherPacificIslanderAloneOrInCombinationWithOneOrMoreOtherRaces',
+    'HAA_MALE':
+        'Count_Person_Male_HispanicOrLatino_AsianAlone',
+    'HAA_FEMALE':
+        'Count_Person_Female_HispanicOrLatino_AsianAlone',
+    'HNA_MALE':
+        'Count_Person_Male_HispanicOrLatino_NativeHawaiianOrOtherPacificIslanderAlone',
+    'HNA_FEMALE':
+        'Count_Person_Female_HispanicOrLatino_NativeHawaiianOrOtherPacificIslanderAlone',
+    'HTOM_MALE':
+        'Count_Person_Male_HispanicOrLatino_TwoOrMoreRaces',
+    'HTOM_FEMALE':
+        'Count_Person_Female_HispanicOrLatino_TwoOrMoreRaces',
+    'HWAC_MALE':
+        'Count_Person_Male_HispanicOrLatino_WhiteAloneOrInCombinationWithOneOrMoreOtherRaces',
+    'HWAC_FEMALE':
+        'Count_Person_Female_HispanicOrLatino_WhiteAloneOrInCombinationWithOneOrMoreOtherRaces',
+    'HBAC_MALE':
+        'Count_Person_Male_HispanicOrLatino_BlackOrAfricanAmericanAloneOrInCombinationWithOneOrMoreOtherRaces',
+    'HBAC_FEMALE':
+        'Count_Person_Female_HispanicOrLatino_BlackOrAfricanAmericanAloneOrInCombinationWithOneOrMoreOtherRaces',
+    'HIAC_MALE':
+        'Count_Person_Male_HispanicOrLatino_AmericanIndianAndAlaskaNativeAloneOrInCombinationWithOneOrMoreOtherRaces',
+    'HIAC_FEMALE':
+        'Count_Person_Female_HispanicOrLatino_AmericanIndianAndAlaskaNativeAloneOrInCombinationWithOneOrMoreOtherRaces',
+    'HAAC_MALE':
+        'Count_Person_Male_HispanicOrLatino_AsianAloneOrInCombinationWithOneOrMoreOtherRaces',
+    'HAAC_FEMALE':
+        'Count_Person_Female_HispanicOrLatino_AsianAloneOrInCombinationWithOneOrMoreOtherRaces',
+    'HNAC_MALE':
+        'Count_Person_Male_HispanicOrLatino_NativeHawaiianAndOtherPacificIslanderAloneOrInCombinationWithOneOrMoreOtherRaces',
+    'HNAC_FEMALE':
+        'Count_Person_Female_HispanicOrLatino_NativeHawaiianAndOtherPacificIslanderAloneOrInCombinationWithOneOrMoreOtherRaces',
+    'NH_MALE':
+        'Count_Person_Male_NotHispanicOrLatino',
+    'NH_FEMALE':
+        'Count_Person_Female_NotHispanicOrLatino',
+    'H_MALE':
+        'Count_Person_Male_HispanicOrLatino',
+    'H_FEMALE':
+        'Count_Person_Female_HispanicOrLatino',
+    'H':
+        'Count_Person_HispanicOrLatino',
+    'H-AI':
+        'Count_Person_HispanicOrLatino_AmericanIndianOrAlaskaNativeAlone',
+    'H-AIAN':
+        'Count_Person_HispanicOrLatino_AmericanIndianOrAlaskaNativeAlone',
+    'H-API':
+        'Count_Person_HispanicOrLatino_AsianOrPacificIslander',
+    'H-B':
+        'Count_Person_HispanicOrLatino_BlackOrAfricanAmericanAlone',
+    'H-W':
+        'Count_Person_HispanicOrLatino_WhiteAlone',
+    'HAA':
+        'Count_Person_HispanicOrLatino_AsianAlone',
+    'HAAC':
+        'Count_Person_HispanicOrLatino_AsianAloneOrInCombinationWithOneOrMoreOtherRaces',
+    'HBA':
+        'Count_Person_HispanicOrLatino_BlackOrAfricanAmericanAlone',
+    'HBAC':
+        'Count_Person_HispanicOrLatino_BlackOrAfricanAmericanAloneOrInCombinationWithOneOrMoreOtherRaces',
+    'HIA':
+        'Count_Person_HispanicOrLatino_AmericanIndianOrAlaskaNativeAlone',
+    'HIAC':
+        'Count_Person_HispanicOrLatino_AmericanIndianAndAlaskaNativeAloneOrInCombinationWithOneOrMoreOtherRaces',
+    'HNA':
+        'Count_Person_HispanicOrLatino_NativeHawaiianOrOtherPacificIslanderAlone',
+    'HNAC':
+        'Count_Person_HispanicOrLatino_NativeHawaiianAndOtherPacificIslanderAloneOrInCombinationWithOneOrMoreOtherRaces',
+    'HTOM':
+        'Count_Person_HispanicOrLatino_TwoOrMoreRaces',
+    'HWA':
+        'Count_Person_HispanicOrLatino_WhiteAlone',
+    'HWAC':
+        'Count_Person_HispanicOrLatino_WhiteAloneOrInCombinationWithOneOrMoreOtherRaces',
+    'NH':
+        'Count_Person_NotHispanicOrLatino',
+    'NH-AI':
+        'Count_Person_NotHispanicOrLatino_AmericanIndianOrAlaskaNativeAlone',
+    'NH-AIAN':
+        'Count_Person_NotHispanicOrLatino_AmericanIndianOrAlaskaNativeAlone',
+    'NH-API':
+        'Count_Person_NotHispanicOrLatino_AsianOrPacificIslander',
+    'NH-B':
+        'Count_Person_NotHispanicOrLatino_BlackOrAfricanAmericanAlone',
+    # 'NH-W':
+    #     'Count_Person_NotHispanicOrLatino_WhiteAlone',
+    'NH-W':
+        'Count_Person_WhiteAloneNotHispanicOrLatino',
+    'NHAA':
+        'Count_Person_NotHispanicOrLatino_AsianAlone',
+    'NHAAC':
+        'Count_Person_NotHispanicOrLatino_AsianAloneOrInCombinationWithOneOrMoreOtherRaces',
+    'NHBA':
+        'Count_Person_NotHispanicOrLatino_BlackOrAfricanAmericanAlone',
+    'NHBAC':
+        'Count_Person_NotHispanicOrLatino_BlackOrAfricanAmericanAloneOrInCombinationWithOneOrMoreOtherRaces',
+    'NHIA':
+        'Count_Person_NotHispanicOrLatino_AmericanIndianOrAlaskaNativeAlone',
+    'NHIAC':
+        'Count_Person_NotHispanicOrLatino_AmericanIndianAndAlaskaNativeAloneOrInCombinationWithOneOrMoreOtherRaces',
+    'NHNA':
+        'Count_Person_NotHispanicOrLatino_NativeHawaiianOrOtherPacificIslanderAlone',
+    'NHNAC':
+        'Count_Person_NotHispanicOrLatino_NativeHawaiianAndOtherPacificIslanderAloneOrInCombinationWithOneOrMoreOtherRaces',
+    'NHTOM':
+        'Count_Person_NotHispanicOrLatino_TwoOrMoreRaces',
+    # 'NHWA':
+    #     'Count_Person_NotHispanicOrLatino_WhiteAlone',
+    'NHWA':
+        'Count_Person_WhiteAloneNotHispanicOrLatino',
+    'NHWAC':
+        'Count_Person_NotHispanicOrLatino_WhiteAloneOrInCombinationWithOneOrMoreOtherRaces'
+}
