@@ -9,6 +9,7 @@ import os
 from constants import OUTPUT_DIR
 
 _CODEDIR = os.path.dirname(os.path.realpath(__file__))
+os.system("mkdir -p " + _CODEDIR + OUTPUT_DIR)
 
 population_estimate_by_srh = '''Node: E:population_estimate_by_srh->E0
 typeOf: dcs:StatVarObservation

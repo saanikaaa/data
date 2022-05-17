@@ -39,7 +39,7 @@ import os
 import pandas as pd
 
 from constants import DOWNLOAD_DIR, PROCESS_AS_IS_DIR, PROCESS_AGG_DIR
-from constants import stat_var_col_mapping, OUTPUT_DIR
+from constants import OUTPUT_DIR, stat_var_col_mapping, working_directories
 
 _CODEDIR = os.path.dirname(os.path.realpath(__file__))
 
@@ -180,13 +180,13 @@ def process_national_files():
     process_national_files_2010_2020()
 
 
-def process_state_files_1980_1990():
+def process_state_files_1980_1990(download_dir):
     '''
     Process state files from 1980 - 1990
     Age is present in bracket for 5 years, these are added up
     '''
     # Section 1 - Writing As Is data
-    input_file_path = _CODEDIR + DOWNLOAD_DIR + '1980_1990/state/'
+    input_file_path = _CODEDIR + download_dir + '1980_1990/state/'
     output_file_path = _CODEDIR + PROCESS_AS_IS_DIR + '1980_1990/state/'
     output_file_name = 'state_1980_1990.csv'
     output_temp_file_name = 'state_1980_1990_temp.csv'
@@ -277,7 +277,7 @@ def process_state_files_1980_1990():
     df1.to_csv(output_file_path + output_file_name, header=True, index=False)
 
 
-def process_state_files_1990_2000():
+def process_state_files_1990_2000(download_dir):
     '''
     Process state files from 1990 - 2000
     There are multiple files present for this duration.
@@ -285,7 +285,7 @@ def process_state_files_1990_2000():
     file as first temp. Post which processing is done in this single file.
     '''
     # Section 1 - Writing As Is data
-    input_file_path = _CODEDIR + DOWNLOAD_DIR + '1990_2000/state/'
+    input_file_path = _CODEDIR + download_dir + '1990_2000/state/'
     output_file_path = _CODEDIR + PROCESS_AS_IS_DIR + '1990_2000/state/'
     output_file_name = 'state_1990_2000.csv'
     output_temp_file_name = 'state_1990_2000_temp.csv'
@@ -414,22 +414,22 @@ def process_state_files_2010_2020():
     df.to_csv(output_file_path + output_file_name, index=False)
 
 
-def process_state_files():
+def process_state_files(download_dir):
     '''
     Process state files from 1980 - 2020
     '''
-    process_state_files_1980_1990()
-    process_state_files_1990_2000()
+    process_state_files_1980_1990(download_dir)
+    process_state_files_1990_2000(download_dir)
     process_state_files_2000_2010()
     process_state_files_2010_2020()
 
 
-def process_county_files_1990_2000():
+def process_county_files_1990_2000(download_dir):
     '''
     Process County files 1990 2000
     '''
     # Section 1 - Writing As Is data
-    input_file_path = _CODEDIR + DOWNLOAD_DIR + '1990_2000/county/'
+    input_file_path = _CODEDIR + download_dir + '1990_2000/county/'
     output_file_path = _CODEDIR + PROCESS_AS_IS_DIR + '1990_2000/county/'
     output_file_name = 'county_1990_2000.csv'
     files_list = os.listdir(input_file_path)
@@ -472,12 +472,12 @@ def process_county_files_1990_2000():
     df1.to_csv(output_file_path + output_file_name, header=True, index=False)
 
 
-def process_county_files_2000_2010():
+def process_county_files_2000_2010(download_dir):
     '''
     Process County files 2000 2010
     '''
     # Section 1 - Writing As Is data
-    input_file_path = _CODEDIR + DOWNLOAD_DIR + '2000_2010/county/'
+    input_file_path = _CODEDIR + download_dir + '2000_2010/county/'
     output_file_path = _CODEDIR + PROCESS_AS_IS_DIR + '2000_2010/county/'
     output_file_name = 'county_2000_2010.csv'
     files_list = os.listdir(input_file_path)
@@ -531,11 +531,11 @@ def process_county_files_2000_2010():
     df1.to_csv(output_file_path + output_file_name, header=True, index=False)
 
 
-def process_county_files_2010_2020():
+def process_county_files_2010_2020(download_dir):
     '''
     Process County files 2010 2020
     '''
-    input_file_path = _CODEDIR + DOWNLOAD_DIR + '2010_2020/county/'
+    input_file_path = _CODEDIR + download_dir + '2010_2020/county/'
     output_file_path = _CODEDIR + PROCESS_AS_IS_DIR + '2010_2020/county/'
     output_file_name = 'county_2010_2020.csv'
     files_list = os.listdir(input_file_path)
@@ -600,13 +600,13 @@ def process_county_files_2010_2020():
     df1.to_csv(output_file_path + output_file_name, header=True, index=False)
 
 
-def process_county_files():
+def process_county_files(download_dir):
     '''
     Process county files from 1990 - 2020
     '''
-    process_county_files_1990_2000()
-    process_county_files_2000_2010()
-    process_county_files_2010_2020()
+    process_county_files_1990_2000(download_dir)
+    process_county_files_2000_2010(download_dir)
+    process_county_files_2010_2020(download_dir)
 
 
 def consolidate_national_files():
@@ -1014,15 +1014,31 @@ def consolidate_files():
     consolidate_all_geo_files()
 
 
-def process_files():
+def process_files(download_dir):
     '''
     Process county files from 1990 - 2020
     '''
-    process_county_files()
-    process_state_files()
+    process_county_files(download_dir)
+    process_state_files(download_dir)
     process_national_files()
 
 
-if __name__ == '__main__':
-    process_files()
+def create_output_n_process_folders():
+    '''
+    Create directories for processing data and saving final output
+    '''
+    for d in working_directories:
+        os.system("mkdir -p " + _CODEDIR + d)
+
+
+def main(download_dir=DOWNLOAD_DIR):
+    '''
+    Produce As Is and Agg output files for National, State and County
+    '''
+    create_output_n_process_folders()
+    process_files(download_dir)
     consolidate_files()
+
+
+if __name__ == '__main__':
+    main()

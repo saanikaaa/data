@@ -231,3 +231,29 @@ stat_var_col_mapping = {
     'NHWAC':
         'Count_Person_NotHispanicOrLatino_WhiteAloneOrInCombinationWithOneOrMoreOtherRaces'
 }
+
+working_directories = [
+    '/process_files/agg/1990_2000/county/',
+    '/process_files/agg/2000_2010/county/',
+    '/process_files/agg/2010_2020/county/',
+    '/process_files/as_is/1990_2000/county/',
+    '/process_files/as_is/2000_2010/county/',
+    '/process_files/as_is/2010_2020/county/',
+    '/process_files/as_is/1980_1990/state/',
+    '/process_files/as_is/1990_2000/state/',
+    '/process_files/as_is/2000_2010/state/',
+    '/process_files/as_is/2010_2020/state/',
+    '/process_files/agg/1980_1990/state/',
+    '/process_files/agg/1990_2000/state/',
+    '/process_files/agg/2000_2010/state/',
+    '/process_files/agg/2010_2020/state/',
+    '/process_files/as_is/1980_1990/national/',
+    '/process_files/as_is/1990_2000/national/',
+    '/process_files/as_is/2000_2010/national/',
+    '/process_files/as_is/2010_2020/national/',
+    '/process_files/agg/1980_1990/national/',
+    '/process_files/agg/1990_2000/national/',
+    '/process_files/agg/2000_2010/national/',
+    '/process_files/agg/2010_2020/national/',
+    '/output_files/'
+]
