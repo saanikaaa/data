@@ -254,6 +254,5 @@ working_directories = [
     '/process_files/agg/1980_1990/national/',
     '/process_files/agg/1990_2000/national/',
     '/process_files/agg/2000_2010/national/',
-    '/process_files/agg/2010_2020/national/',
-    '/output_files/'
+    '/process_files/agg/2010_2020/national/', '/output_files/'
 ]
